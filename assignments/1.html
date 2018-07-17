@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Non Repeated Char</title>
+</head>
+
+<body>
+	<h1>Enter a String<br />I'll give you the first non repeated character</h1>
+	<input type="text" name="name" id = "name">
+	<button onclick="myFunction()">Hit it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var str = document.getElementById("name");
+    var a = str.value;
+    var i, j, flag = 1;
+    var arr = [];
+
+    for (i = 0 ; i < a.length; i++) {
+  		arr[a.charAt(i)] = 0;
+    }
+    for (i = 0 ; i < a.length; i++) {
+  		arr[a.charAt(i)] += 1;
+    }
+     for (i = 0 ; i < a.length; i++) {
+     	if(arr[a.charAt(i)] == 1){
+     		flag = 0;
+  		alert(a.charAt(i));
+  		break;
+  	}
+    }
+if(flag)alert("OOPs!!\neverything is repeated")
+}
+</script>
+	
+</body>
+
+
+</html>
