@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reverse</title>
+	<script type="text/javascript">
+		function Reverse() {
+			var n = document.getElementById("num");
+			var rev = 0;
+			while(n.value != 0){
+				rev *= 10;
+ 				 rev += n.value % 10;
+ 				 n.value -= n.value % 10;
+ 				 n.value /= 10;
+			}alert(rev);
+		}
+	</script>
+</head>
+<body>
+<h1>Enter a Number <br /> I'll Reverse it</h1>
+<input type="text" name="number" id="num">
+<button onclick="Reverse()">GetRev</button>
+</body>
+</html>
