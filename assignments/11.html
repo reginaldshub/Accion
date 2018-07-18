@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prime</title>
+	<script type="text/javascript">
+		function prime(){
+			var n = document.getElementById("num");
+			var limit, i,flag=1;
+			if(n.value<2){alert("Number should be greater than 1");}
+			else{
+			limit = n.value/2;
+			for (i=2;i<=limit;i++){
+				if(n.value%i==0){
+					alert("Not Prime");
+					flag = 0;
+					break;
+				}
+			}
+			if(flag){alert("Its a Prime");}
+		}
+		}
+	</script>
+</head>
+<body>
+<input type="text" name="number" id="num">
+<button onclick="prime()">enter</button>
+</body>
+</html>
