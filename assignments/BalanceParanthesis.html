@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function balance(){
+			var s=0,a;
+			var str=document.getElementById("str");
+			a = str.value;
+			for (var i=0;i<str.value.length;i++)
+			{
+				if(a.charAt(i) == "("){
+					++s;
+				}
+				else if(a.charAt(i) == ")"){
+					--s;
+				}
+			}
+			if(s == 0){
+				alert(a.length);
+			}
+			else
+				alert("Not Balanced");
+		}
+	</script>
+	<title>Balance</title>
+</head>
+<body>
+<input type="text" name="str" id="str">
+<button onclick="balance()">Send</button>
+</body>
+</html>
