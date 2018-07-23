@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+body{
+	border: 10px solid transparent;
+    padding: 15px;
+    width: 240px;
+    -webkit-border-image: url(border.jpg) round;
+    border-image-slice: 30%;
+}
+#main {
+    width: 240px;
+    height: 50px;
+ 
+    display: flex;
+   
+}
+
+#main div {
+    flex-grow: 50;
+    flex-shrink: 50;
+    flex-basis: 2px;
+    font-size: 20px;
+
+}
+
+#myBlueDiv {
+    animation: mymove 5s infinite;
+    -webkit-animation: mymove 5s infinite;
+
+}
+
+@-webkit-keyframes mymove {
+
+    50% {flex-basis: 200px;}
+}
+
+
+	</style>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<h1>WELCOME TO</h1>
+<div id="main">
+	
+ <div style="background-color:coral;">My</div>
+  <div style="background-color:lightblue;" id="myBlueDiv">CALCULATOR</div>
+</div>
+
+<a href="calculator.html"><h2>Click TO Dive into MyCalculator....</h2></a>
+</body>
+</html>

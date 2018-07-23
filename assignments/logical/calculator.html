@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body {
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 32px;
+}
+.calculator-layout {
+display: flex;
+align-items: center;
+justify-content: center;
+
+border: 1px solid #d9d9d9;
+box-shadow: 6px 2px 14px 0px #d9d9d9;
+max-width: 400px;
+width: 400px;
+max-height: 400px;
+height: 400px;
+}
+	</style>
+	<script type="text/javascript">
+		function equals(){
+			var input = document.getElementById("num");
+			var a = input.value;
+			var n= "",n1= "",op;
+			for (var i = 0; i < a.length; i++) {
+				if(a[i]	 != "&" && a[i]	 != "|" && a[i]	 != "!"){
+					n1 =n1 + a[i];
+				}else {
+					n=n1;
+					n1="";
+					op = a[i];
+					}
+				}
+				if(op == "&")
+					console.log(n1&n);
+			   else if(op == "|")
+					console.log(n1|n);
+				else 
+					console.log(!n);
+			}
+	//	}
+		
+		
+	</script>
+	<title>Calculator</title>
+</head>
+<body ><DIV id = "calculator-layout">
+<input type="text" name="binary" id="num">
+<button onclick="equals()">Result</button>
+</DIV>
+</body>
+</html>
