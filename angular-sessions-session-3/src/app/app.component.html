@@ -1,0 +1,23 @@
+<input placeholder="Name" type="" name="" [(ngModel)]="form.name" (ngModelChange)="valuechange($event)"><p id = "print"></p>
+<input placeholder="Phone" type="" name="" [(ngModel)]="form.phone" (ngModelChange)="valuechange1($event)"><p id = "print1"></p>
+<input placeholder="Address" type="" name="" [(ngModel)]="form.address" (ngModelChange)="valuechange2($event)"><p id = "print2"></p>
+
+<button (click)="addContact()">Add</button>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Phone No</th>
+			<th>Addres</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr app-list-item (onDelete)="onChildDelete(i)" [item]="contact" *ngFor="let contact of contacts; let i = index">
+			
+		</tr>
+	</tbody>
+
+
+</table>
