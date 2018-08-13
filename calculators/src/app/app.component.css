@@ -1,0 +1,55 @@
+td{
+	padding:10px 10px;
+	font-size:15px;
+}
+.com{
+	border: 1px solid black;
+    width: 300px;
+    height: 420px;
+    background-color: #D7BDE2 ;	
+}
+input{
+	    position: relative;
+    left: 35px;
+    top: 15px;
+    width:225px;
+    height: 50px;
+    font-size: 30px;
+    text-align: right;
+}
+table{
+	position: relative;
+	top:40px;
+	left:25px;
+}
+button{
+	height:40px;
+	width:40px;
+	font-size: 24px;
+}
+.main{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.two {
+	width:100px;
+}
+.twoo{
+	position: relative;
+	bottom:35px;
+	width:103px;
+}
+.ver{
+	position: relative;
+	height:94px;
+	bottom:63px;
+	background-color: #ff9933;
+}
+.las{
+	position: relative;
+	bottom:35px;
+}
+.grey{
+	background-color: #bfbfbf;
+}
