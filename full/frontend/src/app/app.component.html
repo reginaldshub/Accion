@@ -1,0 +1,17 @@
+<div class= "container">
+  <pre> <p>
+    Name:   <input type="text" placeholder="Name" [(ngModel)]="name"><br/>
+    Age:    <input type="text" placeholder="age" [(ngModel)]="age"><br/>
+    Gender: <input type="text" placeholder="gender" [(ngModel)]="gender"><br/>
+    Address:<input type="text" placeholder="address" [(ngModel)]="address">
+  </p></pre>
+ 
+  <pre>
+                     <button (click) = "onADD()">ADD</button>                <button (click) = "onGET()">GET</button>
+                     <button (click) = "onDELETE()">DELETE</button>                <button (click) = "onUPDATE()">UPDATE</button>
+</pre>
+</div> 
+<div *ngFor = "let item of list">
+  <p>{{item.name}}</p>
+
+</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+a {
+    padding: 0.2em;
+}
+a:hover {
+    background-color: #02AAEE;
+}
+#output {
+    display: block;
+    margin-top: 8px;
+    padding: 1%;
+    border: 1px solid #666;
+    background-color: #efefef;
+    
+}
+</style>
+        <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+        </script>
+        <script>
+          function getSuccessOutput() {
+    $.ajax({
+        url:'http://www.mocky.io/v2/5b7d39953300006d004a01e9',
+        complete: function (response) {
+            var obj = JSON.parse(response.responseText);
+            var str = "";
+            for(i=0;i<obj.length;i++){
+               str +="<table>"+"<tr>" + "<td>"+obj[i].id+"</td>"+"<td>"+obj[i].name+"</td>"+"<td>"+obj[i].comp+"</td>"+"</tr>"+"</table>"
+       document.getElementById("print").innerHTML = str;
+        }
+    },
+        error: function () {
+            $('#output').html('Bummer: there was an error!');
+        },
+    });
+    return false;
+}
+// handles the click event, sends the query
+function getFailOutput() {
+    $.ajax({
+        url:'myAjax.php',
+        success: function (response) {
+            console.log(data, response);
+            $('#output').html(response);
+        },
+        error: function () {
+            $('#output').html('Bummer: there was an error!');
+        },
+    });
+    return false;
+}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <h1>White Field</h1> 
+   <a href="#" onclick="return getSuccessOutput();"> test success </a>
+<div id="output">waiting for action</div>
+<table border = "1" >
+<tr><strong>
+<th>id</th>
+<th>name</th>
+<th>comp</th></strong>
+</tr>
+<span id = "print"></span>
+</table>
+</body>
+</html>
