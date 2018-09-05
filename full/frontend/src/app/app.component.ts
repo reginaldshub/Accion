@@ -22,13 +22,14 @@ export class AppComponent {
     this.service.addData(data).subscribe((response: any) => {
       console.log("Response", response);
       if (response.success) {
-        alert("added sccessfully");
+        //alert("added sccessfully");
         this.name = null;
         this.age = null;
         this.gender = null;
         this.address = null;
       } else {
-        alert(response.error);
+        
+       
       }
     });
   }
@@ -43,23 +44,23 @@ export class AppComponent {
         console.log(response.age);
         if (response.success) {
           
-          alert(response.message);
+          //alert(response.message);
         }else{
           this.age = response.age;
           this.gender = response.gender;
           this.address = response.address;
-          alert(response.message);
+          //alert(response.message);
         }
       }, (err) => {
-          alert(err.message);
+          //alert(err.message);
       });}
       else {
       this.service.getData().subscribe((response: any) => {
         console.log("Response", response);
         this.list = response.customers;
         if (response.success) {
-          alert(response.message);
-          alert("message")
+          //alert(response.message);
+          //alert("message")
         }
       });
     }
@@ -70,12 +71,15 @@ export class AppComponent {
     console.log(this.name);
     this.service.getDelete(this.name).subscribe((response: any) => {
       console.log("Response", response);
-      if (!response.success) {
-        alert(response.message);
+      if (response.success) {
+        //alert("deleted");
         this.name = null;
         this.age = null;
         this.gender = null;
         this.address = null;
+      }
+      else{
+        //alert("could not delete");
       }
     });
   }
@@ -86,11 +90,14 @@ export class AppComponent {
     this.service.getUpdate(this.name, data).subscribe((response: any) => {
       console.log("Response", response);
       if (response.success) {
-        alert(response.message);
+        //alert("updated");
         this.name = null;
         this.age = null;
         this.gender = null;
         this.address = null;
+      }
+      else{
+        //alert("could not update");
       }
     });
   }
