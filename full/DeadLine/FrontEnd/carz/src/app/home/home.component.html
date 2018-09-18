@@ -1,0 +1,91 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .jumbotron {
+      background-color: #f4511e;
+      color: #fff;
+  }
+
+  .navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar>p {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.side {
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-color: white;
+    font-weight: bold;
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 10s infinite;
+}
+
+
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 1000px;}
+}
+
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>CarZ Company</h1> 
+  <p>We are specialized in blablabla</p> 
+  <form class="form-inline">
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="car name" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+      </div>
+    </div>
+  </form>
+  <br>
+  <button type="button" class="btn  btn-lg btn-danger" (click) = "nav()">SELL</button>
+</div>
+<div class="side" id="div1">Used</div>
+<div class="side" id="div2">CarZ</div>
+<div class="side" id="div3">Showroom</div>
+<div class="side" id="div4">Sell</div>
+<div class="side" id="div5">Buy</div>
+<div class="navbar">
+  <p>Copyrights</p>
+ </div>
+ 
+</body>
+</html>

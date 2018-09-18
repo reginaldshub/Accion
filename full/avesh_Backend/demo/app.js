@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var fs = require('fs');
+var multer = require('multer');
+
 
 var  mongoose = require('mongoose');
 var  config = require('config');
@@ -33,6 +36,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/customers', customersRouter);
+
+
+//app.use(multer({ dest: '../public/images/'}).any());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

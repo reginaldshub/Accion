@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var Customer = require('../models/customer');
+var multer = require('multer');
+var upload = multer({dest: 'uploads/'});
+
 
 /* GET home page. */
-router.post('/add', function(req, res, next) {
+router.post('/add', upload.single('productImage'), function(req, res, next) {
+		console.log(req.file);
 
 		var newCustomer = new Customer(req.body.data);
 
@@ -15,6 +19,14 @@ router.post('/add', function(req, res, next) {
 		}
 	});
 });
+
+// 		router.post('/upload',function(req,res){
+//  var newCustomer = new Customer(req.body.data);
+//  newCustomer.img.data = fs.readFileSync(req.files.userPhoto.path)
+//  newCustomer.img.contentType = 'image/png';
+//  newCustomer.save();
+// });
+		
 
 /* GET home page. */
 router.get('/list', function(req, res, next) {
@@ -30,7 +42,7 @@ router.get('/list', function(req, res, next) {
 
 /* GET home page. */
 router.get('/profile/:id', function(req, res) {
-  Customer.findOne({name: req.params.id}, (err, customer)=>{
+  Customer.find({name:req.params.id}, (err, customer)=>{
   	if(err) res.send(err);
   	else	res.json(customer);
   })

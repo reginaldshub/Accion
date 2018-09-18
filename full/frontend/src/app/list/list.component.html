@@ -1,0 +1,15 @@
+<!-- <div *ngFor = "let item of list">
+    <p>{{item.name}}</p>
+  
+
+
+  </div> -->
+
+
+  <ul>
+      <li *ngFor="let item of list | paginate: { itemsPerPage: 2, currentPage: p }"> {{item.name}}</li>
+      
+    </ul>
+               
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   

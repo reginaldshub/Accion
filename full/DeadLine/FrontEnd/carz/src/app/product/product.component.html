@@ -1,0 +1,54 @@
+
+<div class="body1">
+<!-- <div class="container"> -->
+<mat-card [ngStyle]="{color:white}" class="home"> 
+<h3>Register</h3>
+<form [formGroup]="createForm" class="create-form" enctype="multipart/form-data">
+<mat-form-field class="field-full-width">
+
+<input matInput placeholder="Name" formControlName="name" #name >
+<!--<mat-error *ngIf="name.required">
+Name is <strong>required</strong>
+</mat-error>-->
+</mat-form-field>
+<mat-form-field class="field-full-width">
+<input matInput placeholder="Price" formControlName="price" #price>
+</mat-form-field>
+<mat-divider></mat-divider>
+<br><br>
+  <input  type="file" (change)="onFileChanged($event)"  formControlName="productImage" #productImage>
+
+<button type="submit" matTooltip="Save Details" (click)="addProduct()" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">
+submit
+
+</button>
+
+</form>
+</mat-card> 
+<!-- <img [src]="imgUrl" alt="image caption" height="250px" > -->
+
+<table id="customers">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+  <tr *ngFor="let i of response" >
+  <td >
+    {{i.name}}  
+  </td>
+  <td>
+    {{i.price}}
+  </td>
+      <td>
+     <img [src]="imgUrl+i.productImage" alt="image caption" height="100px" width="100px" >
+      </td>
+</tr>
+               
+
+</table>
+  
+
+<button (click) = "get()">Get</button>
+<!-- </div> -->
+</div>

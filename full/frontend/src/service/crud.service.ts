@@ -8,6 +8,12 @@ export class CrudService {
 
   constructor(private http: HttpClient) {  }
 
+  //  public upload(selectedFile){
+  //   const httpOptions = {
+  //     headers : new HttpHeaders({ 'Content-Type' : 'image/gif'})
+  //   };
+  //   return this.http.post("http://localhost:3000/customers/upload", {"data": selectedFile}, httpOptions);
+  //  }
 public addData(data) {
   const httpOptions = {
     headers : new HttpHeaders({ 'Content-Type' : 'application/json'})
