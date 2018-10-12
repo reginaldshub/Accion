@@ -22,8 +22,11 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@progress/kendo-angular-dropdowns": "^1.6.1",
     "core-js": "^2.5.4",
-    "ngx-filter-pipe": "^2.1.0",
+    "material-design-icons": "^3.0.1",
+    "ng-multiselect-dropdown": "^0.2.1",
+    "ngx-filter-pipe": "^2.1.1",
     "ngx-pagination": "^3.2.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

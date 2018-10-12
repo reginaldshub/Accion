@@ -1,23 +1,68 @@
+  <link rel="stylesheet" type="text/css" href="/path/to/angular-slider/dist/rzslider.css"/>
+<script src="/path/to/angularjs/angular.min.js"></script>
+<script src="/path/to/angular-slider/dist/rzslider.min.js"></script>
 
 <div class="body1">
 <!-- <div class="container"> -->
 <mat-card [ngStyle]="{color:white}" class="home"> 
 <h3>Register</h3>
 <form [formGroup]="createForm" class="create-form" enctype="multipart/form-data">
-<mat-form-field class="field-full-width">
-
-<input matInput placeholder="Name" formControlName="name" #name >
-<!--<mat-error *ngIf="name.required">
-Name is <strong>required</strong>
-</mat-error>-->
+  
+  <mat-form-field class="field-full-width">
+ <input matInput placeholder="Name" formControlName="name" #name > 
 </mat-form-field>
-<mat-form-field class="field-full-width">
+
+  <mat-form-field class="field-full-width">
+      <mat-select placeholder="company" formControlName="company">
+        <mat-option value="Maruthi Suzuki">Maruthi Suzuki</mat-option>
+        <mat-option value="Hyndai">Hyndai</mat-option>
+        <mat-option value="Honda">Honda</mat-option>
+        <mat-option value="Mahendra">Mahendra</mat-option>
+      </mat-select>
+    </mat-form-field> 
+  
+    <mat-form-field class="field-full-width"> 
 <input matInput placeholder="Price" formControlName="price" #price>
 </mat-form-field>
-<mat-divider></mat-divider>
-<br><br>
-  <input  type="file" (change)="onFileChanged($event)"  formControlName="productImage" #productImage>
 
+<!-- <mat-form-field class="field-full-width">
+    <input type="range" min=0 max=100000 (change)="slider(price)" formControlName="price" #price>
+    </mat-form-field>
+    <mat-form-field >
+  <input matInput disabled=true value="{{slid}}">
+  </mat-form-field>
+   -->  
+  
+          
+              <input matInput type="number" placeholder="{{value}}" [(ngModel)]="value">
+      
+          <mat-slider
+              class="example-margin"
+              [max]="max"
+              [tickInterval]="tickInterval"
+              [thumbLabel]="thumbLabel"
+              [(ngModel)]="value">
+          </mat-slider>
+
+   <ng-multiselect-dropdown
+   placeholder = "Parts Replaced"
+   [data]="dropdownList"
+   [(ngModel)]="selectedItems"
+   [settings]="dropdownSettings"
+   (onchange)="onItemSelect($event)"
+   (onDeSelect)="onItemDeSelect($event)" 
+   (onFilterChange)="onFilterChange($event)"
+   (onSelect)="onItemSelect($event)"
+   (onSelectAll)="onSelectAll($event)">
+ </ng-multiselect-dropdown>
+ <br>
+ 
+<mat-divider></mat-divider>
+<br>
+
+<br>
+  <input  type="file" (change)="onFileChanged($event)"  formControlName="productImage" #productImage>
+ 
 <button type="submit" matTooltip="Save Details" (click)="addProduct()" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">
 submit
 
@@ -25,24 +70,46 @@ submit
 
 </form>
 </mat-card> 
+
 <!-- <img [src]="imgUrl" alt="image caption" height="250px" > -->
 
 <table id="customers">
     <tr>
-        <th>Name</th>
-        <th>Price</th>
+        <th></th>
         <th>Image</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Parts</th>
+        <th>Price</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
   <tr *ngFor="let i of response" >
+      <td >
+        
+        </td>
+        <td>
+            <img [src]="imgUrl+i.productImage" alt="image caption" height="100px" width="100px" >
+             </td>
   <td >
     {{i.name}}  
   </td>
+  <td >
+      {{i.company}}  
+    </td>
+    <td >
+        {{i.parts}}  
+      </td>
   <td>
     {{i.price}}
   </td>
-      <td>
-     <img [src]="imgUrl+i.productImage" alt="image caption" height="100px" width="100px" >
-      </td>
+     
+      <td><a (click) = "update(i.name)" class="btn btn-success btn-lg">
+          <span class="glyphicon glyphicon-edit"></span> 
+        </a></td>
+      <td><a (click) = "delete(i._id)" class="btn btn-success btn-lg">
+          <span class="glyphicon glyphicon-trash"></span> 
+        </a></td>
 </tr>
                
 
@@ -52,3 +119,4 @@ submit
 <button (click) = "get()">Get</button>
 <!-- </div> -->
 </div>
+

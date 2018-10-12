@@ -67,9 +67,9 @@
   <p>We are specialized in blablabla</p> 
   <form class="form-inline">
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="car name" required>
+      <input  class="form-control" size="50" placeholder="car name" #name>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">
+        <button type="button" (click)="getSpec(name)" class="btn btn-danger">
           <span class="glyphicon glyphicon-search"></span> Search
         </button>
       </div>
@@ -78,12 +78,25 @@
   <br>
   <button type="button" class="btn  btn-lg btn-danger" (click) = "nav()">SELL</button>
 </div>
+
+  <div *ngFor="let product of cardetails">
+
+<div align="center" [hidden]="show">
+<pre><b>Name:</b>  {{product.name}}<br />
+<b>Price:</b>  {{product.price}}<br /></pre>
+<img [src]="imgUrl+product.productImage" alt="image caption" height="120px" width="200px" >
+</div>
+</div>
+
+<div [hidden]="!show">
 <div class="side" id="div1">Used</div>
 <div class="side" id="div2">CarZ</div>
 <div class="side" id="div3">Showroom</div>
 <div class="side" id="div4">Sell</div>
 <div class="side" id="div5">Buy</div>
-<div class="navbar">
+</div>
+
+<div [hidden]="!show" class="navbar">
   <p>Copyrights</p>
  </div>
  

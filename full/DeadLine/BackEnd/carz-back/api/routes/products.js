@@ -31,7 +31,7 @@ const Product = require('../models/product');
 
 router.get('/', (req, res, next) => {
     Product.find()
-    .select('name price _id productImage')
+    .select('name price company parts _id productImage')
     .exec()
     .then(docs => {
         const response = {
@@ -40,6 +40,8 @@ router.get('/', (req, res, next) => {
                 return {
                     name: doc.name,
                     price: doc.price,
+                    company:doc.company,
+                    parts: doc.parts,
                     productImage: doc.productImage,
                     _id: doc._id,
                     request: {
@@ -66,6 +68,8 @@ router.post('/', upload.single('productImage'), (req, res, next) => {
         _id: new mongoose.Types.ObjectId(),
         name:req.body.name,
         price: req.body.price,
+        company: req.body.company,
+        parts: req.body.parts,
         productImage: req.file.path
     });
     product.save().then(result => {
@@ -75,6 +79,8 @@ router.post('/', upload.single('productImage'), (req, res, next) => {
             createdProduct: {
                 name: result.name,
                 price: result.price,
+                company:result.company,
+                parts: result.parts,
                 _id: result._id,
                 request: {
                     type: 'POST',
@@ -90,12 +96,11 @@ router.post('/', upload.single('productImage'), (req, res, next) => {
 
 //enhance
 router.get('/:productId',(req, res, next) => {
-    const id = req.params.productId;
-   Product.findById(id)
-   .select('name price _id productImage')
+    console.log(req);
+   Product.find({name:req.params.productId})
+   .select('name price company parts _id productImage')
    .exec()
    .then(doc => {
-       console.log(doc);
        if(doc){
            res.status(200).json({
        product: doc,
@@ -112,8 +117,14 @@ router.get('/:productId',(req, res, next) => {
        res.status(500).json({error: err});
    })
 });
+// router.get('/:id', function(req, res) {
+//     Product.find({name:req.params.id}, (err, product)=>{
+//         if(err) res.send(err);
+//         else	res.json(product);
+//     })
+//   });
 
-router. patch('/:productId',(req, res, next) => {
+router.patch('/:productId',(req, res, next) => {
     const id = req.params.productId;
     const updateOps = {};
     for(const ops of req.body){
@@ -133,7 +144,7 @@ router. patch('/:productId',(req, res, next) => {
     });
 });
 
-router. delete('/:productId',(req, res, next) => {
+router.delete('/:productId',(req, res, next) => {
     const id = req.params.productId;
     Product.remove({_id: id})
     .exec()
