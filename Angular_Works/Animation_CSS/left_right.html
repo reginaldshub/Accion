@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<style type="text/css">
+
+	.left-to-right{
+		animation: moveRight 1s ease-out;
+	}
+
+.right-to-left{
+animation: moveLeft 1s ease-out;
+}
+body {
+	background-color: white ;
+}
+
+body {
+	background-color: lightblue ;
+}
+@keyframes moveRight {
+
+0% {
+transform: translateX(-100px)
+}
+
+80% {
+transform: translateX(10px) 
+}
+
+100% {
+transform: translateX(0px) 
+}
+}
+
+@keyframes moveLeft {
+0% {
+transform: translateX(100px)
+}
+
+80% {
+transform: translateX(-10px) 
+}
+
+100% {
+transform: translateX(0px) 
+}
+
+}
+
+</style>
+<body>
+
+<h1 class="left-to-right">This goes left to right.</h1>
+<h1 class="right-to-left">This goes right to left.</h1>
+
+</body>
+</html>

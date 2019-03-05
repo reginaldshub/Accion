@@ -1,0 +1,21 @@
+<button (click)="getDeployer()">Deployer</button>
+<button (click)="getEmployer()">Employer</button>
+<button (click)="getWorker()">Worker</button>
+<button (click)="getName()">Name</button>
+<h3>{{print}}</h3>
+<form>
+  <div class="container">
+
+    <hr>
+    <label ><b>Tranfer From</b></label>
+    <input type="text"  placeholder="Tranfer Frpm"  [(ngModel)]="transferFrom" name="transferFrom" required>
+
+    <label for="amount"><b>Amount in Ether</b></label>
+    <input type="text"  class="inputfield" placeholder="Enter Amount"  [(ngModel)]="amount" name="amount" required>
+
+    <button type="reset" >Reset</button>&nbsp;&nbsp;
+    <button type="submit" (click)="transferEther($event)">Transfer Ether</button>
+  </div>
+
+</form>
+

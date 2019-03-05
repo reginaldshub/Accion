@@ -1,0 +1,8 @@
+<input type="text" (keyup.enter)="createPost(title)" #title>
+<ol>
+  <li *ngFor="let posts of posts">
+    <button (click)="UpdatePost(posts)">Update</button>
+    <button (click)="DeletePost(posts)">Delete</button>
+    {{posts.title}}
+  </li>
+</ol>

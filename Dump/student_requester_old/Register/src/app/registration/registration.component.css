@@ -1,0 +1,22 @@
+mat-form-field{
+    padding-left: 20px;
+}
+
+.registration-card{
+    width: auto;
+    
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.submit-button{
+
+}
